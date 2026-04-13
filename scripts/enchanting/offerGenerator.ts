@@ -72,7 +72,8 @@ export function buildEnchantingOffers(
   item: ItemStack,
   playerId: string,
   tableLocation: Vector3,
-  bookshelfCount: number
+  bookshelfCount: number,
+  rollSeed: number
 ): EnchantmentOffer[] {
   const enchantable = item.getComponent("minecraft:enchantable") as ItemEnchantableComponent | undefined;
   if (!enchantable) {
@@ -86,7 +87,7 @@ export function buildEnchantingOffers(
 
   return OFFER_TIERS.map((tier, tierIndex) => {
     const rng = new SeededRandom(
-      hashSeed(`${playerId}|${itemFingerprint(item)}|${locationKey(tableLocation)}|${tierIndex}`)
+      hashSeed(`${playerId}|${itemFingerprint(item)}|${locationKey(tableLocation)}|${rollSeed}|${tierIndex}`)
     );
     const powerScore = tier.basePower + bookshelfCount * 2 + getSlotPowerBonus(enchantable.slots);
     const workingItem = item.clone();

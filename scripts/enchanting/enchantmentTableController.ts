@@ -17,6 +17,7 @@ const ENCHANTING_TABLE_TYPE_ID = "minecraft:enchanting_table";
 const LAPIS_TYPE_ID = "minecraft:lapis_lazuli";
 const MAX_BOOKSHELVES = 15;
 const activePlayers = new Set<string>();
+let enchantmentRollNonce = 0;
 
 export function registerEnchantmentTableController(): void {
   world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
@@ -57,7 +58,13 @@ async function openEnchantingFlow(player: Player, tableLocation: Vector3): Promi
       location: tableLocation,
       bookshelfCount: countBookshelves(table),
     };
-    const offers = buildEnchantingOffers(context.item, player.id, tableLocation, tableContext.bookshelfCount);
+    const offers = buildEnchantingOffers(
+      context.item,
+      player.id,
+      tableLocation,
+      tableContext.bookshelfCount,
+      nextEnchantmentRollSeed()
+    );
 
     if (offers.length === 0) {
       player.sendMessage("§cThat item cannot receive any new enchantments here.");
@@ -355,4 +362,9 @@ function toRoman(value: number): string {
 
 function cloneLocation(location: Vector3): Vector3 {
   return { x: location.x, y: location.y, z: location.z };
+}
+
+function nextEnchantmentRollSeed(): number {
+  enchantmentRollNonce += 1;
+  return system.currentTick + enchantmentRollNonce;
 }
