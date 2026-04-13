@@ -1,0 +1,40 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Enchantment Plus",
+    "description": "Resource pack for Enchantment Plus.",
+    "uuid": "32dde948-8075-4140-98de-1f59205b5245",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      16,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "Add-on Pack Resources",
+      "type": "resources",
+      "uuid": "b9f2c8e5-b7c7-4bb4-9c1e-d8744b55cb03",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "3d924f8c-5175-4eeb-afd7-acde701a40d8",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}
