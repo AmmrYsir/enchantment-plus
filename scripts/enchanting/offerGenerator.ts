@@ -18,9 +18,9 @@ type OfferTier = {
 };
 
 const OFFER_TIERS: OfferTier[] = [
-  { label: "Focused", lapisCost: 1, levelCost: 5, basePower: 16, extraChance: 0.18 },
-  { label: "Empowered", lapisCost: 2, levelCost: 15, basePower: 28, extraChance: 0.45 },
-  { label: "Mythic", lapisCost: 3, levelCost: 30, basePower: 40, extraChance: 0.72 },
+  { label: "Focused", lapisCost: 1, levelCost: 1, basePower: 20, extraChance: 0.25 },
+  { label: "Empowered", lapisCost: 2, levelCost: 2, basePower: 35, extraChance: 0.5 },
+  { label: "Mythic", lapisCost: 3, levelCost: 3, basePower: 50, extraChance: 0.85 },
 ];
 
 const TREASURE_ENCHANTMENTS = new Set([
